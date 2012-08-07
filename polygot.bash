@@ -1,9 +1,7 @@
-#!/usr/bin/env ksh
-
-POLYGOT_HOME=$(dirname $0)
+POLYGOT_HOME="${HOME}/.poly"
 
 function usage {
-  echo "Usage: $0 command [args]" >&2
+  echo "Usage: polygot.bash command [args]" >&2
   echo "  commands:" >&2
   echo "    list" >&2
   echo "    load" >&2
@@ -14,7 +12,7 @@ function load {
   if [[ -f $CFG ]]
   then
     echo "poly : Loading $1"
-    . $CFG
+    source $CFG
   else
     echo "poly : Error loading $1 - not recognised" >&2
   fi
