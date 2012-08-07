@@ -1,0 +1,1 @@
+alias restart='git pull && bundle install && be rake db:migrate db:test:prepare && be rspec && be rails s'
