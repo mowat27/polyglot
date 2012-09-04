@@ -25,7 +25,12 @@ function list {
 
 if [[ $# -lt 1 ]]
 then
-  usage
+  if [[ -f ./Polyfile ]]
+  then
+    source ./Polyfile
+  else 
+    echo "No Polyfile found" >&2
+  fi
 else
   CMD=$1; shift
   case $CMD in
