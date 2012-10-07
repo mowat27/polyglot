@@ -26,9 +26,11 @@ function rails-new {
 }
 
 function restart {
-#  [[ ! -z $(git remote) ]] && git pull origin
+  [[ ! -z $(git remote) ]] && git pull origin
   bundle install && 
   bundle exec rake db:migrate db:test:prepare &&
   bundle exec rspec && 
   bundle exec rails s
 }
+
+alias rdbm='echo Migrating db and prepping test db; bundle exec rake db:migrate db:test:prepare'

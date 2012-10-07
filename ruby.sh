@@ -12,3 +12,4 @@ function find_rb_files {
 }
 
 alias rbs=find_rb_files
+alias bi="echo 'bundle install'; bundle install"
