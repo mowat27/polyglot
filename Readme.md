@@ -12,6 +12,10 @@ poly load clojurescript
 
 clone this repo into ~/.poly
 
+```
+git clone https://github.com/mowat27/polygot.git ~/.poly
+``
+
 Add the following to .bashrc (or similar)
 
 ```
