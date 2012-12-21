@@ -8,9 +8,7 @@ alias gl="git log --graph --pretty=\"format:%C(yellow)%h%Cblue%d%Creset %s %C(wh
 if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
   . /usr/local/git/contrib/completion/git-completion.bash
 fi
-if [ -f /usr/local/git/contrib/completion/git-prompt.sh ]; then
-  . /usr/local/git/contrib/completion/git-prompt.sh
-fi
 export GIT_PS1_SHOWDIRTYSTATE=true
 
+poly load git-prompt
 PS1='\[\033[32m\]$(rvm current)\[\033[00m\]:\[\033[34m\]$(basename $PWD)\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
