@@ -1,0 +1,1 @@
+alias e='open -a emacs'
