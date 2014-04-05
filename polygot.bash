@@ -6,6 +6,8 @@ function usage {
   echo "  commands:" >&2
   echo "    list" >&2
   echo "    load" >&2
+  echo "    prompt" >&2
+  echo "" >&2
 }
 
 function load {
@@ -25,7 +27,13 @@ function push_prompt {
 }
 
 function list {
+  echo "Recipes"
+  echo "-------"
   find $RECIPES -depth 1 -name '*.sh' -exec basename {} .sh \;
+  echo ""
+  echo "Prompts"
+  echo "-------"
+  find $PROMPTS -depth 1 -type f -exec basename {} .sh \;
   echo ""
 }
 
@@ -59,8 +67,22 @@ else
         done
       fi
       ;;
+    help)
+      cat <<EOF
+Polyglot is a simple framework for programmers who want to be able to 
+switch between different langauages easily without having a really 
+complicated .profile or .bashrc. It allows you to create simple little 
+setup scripts for each lanaguage you use and then pull them into your 
+current shell on-demand using a simple utility.
+
+See https://github.com/mowat27/polyglot for more info.
+
+EOF
+      usage
+    ;;
     *)
-      "poly : Unexpected command #{CMD}"
+      echo "poly : Unexpected command $CMD" >&2
+      echo "" >&2
       usage
     ;;
   esac
