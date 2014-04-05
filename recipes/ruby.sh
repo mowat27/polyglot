@@ -22,4 +22,4 @@ function rgem {
   gem list --remote $1 | ruby -e "$RUBY"
 }
 
-
+poly prompt ruby : pwd git -

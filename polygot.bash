@@ -49,13 +49,13 @@ else
   CMD=$1; shift
   case $CMD in
     list) list;;
-    load)
+    load | l)
       for c in $@
       do
         load $c
       done
     ;;
-    prompt)
+    prompt | p)
       if [[ -z "${@}" ]]
       then
         PS1='$ '
