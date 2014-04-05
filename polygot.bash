@@ -1,4 +1,5 @@
-POLYGOT_HOME="${HOME}/.poly/recipes"
+RECIPES="${HOME}/.poly/recipes"
+PROMPTS="${HOME}/.poly/prompts"
 
 function usage {
   echo "Usage: polygot.bash command [args]" >&2
@@ -8,7 +9,7 @@ function usage {
 }
 
 function load {
-  CFG="${POLYGOT_HOME}/${1}.sh"
+  CFG="${RECIPES}/${1}.sh"
   if [[ -f $CFG ]]
   then
     echo "poly : Loading $1"
@@ -18,8 +19,13 @@ function load {
   fi
 }
 
+function push_prompt {
+  CFG="${PROMPTS}/${1}"
+  PS1="${PS1}$(cat $CFG)"
+}
+
 function list {
-  find $POLYGOT_HOME -depth 1 -name '*.sh' -exec basename {} .sh \;
+  find $RECIPES -depth 1 -name '*.sh' -exec basename {} .sh \;
   echo ""
 }
 
@@ -41,6 +47,18 @@ else
         load $c
       done
     ;;
+    prompt)
+      if [[ -z "${@}" ]]
+      then
+        PS1='$ '
+      else
+        PS1=""
+        for p in $@
+        do
+          push_prompt $p
+        done
+      fi
+      ;;
     *)
       "poly : Unexpected command #{CMD}"
       usage
