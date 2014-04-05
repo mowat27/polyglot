@@ -35,9 +35,9 @@ poly help
 
 ### Environment Setup
 
-To create a new environment setup file, simply create a script in your .poly/recipes directory named <env>.sh and it should be picked up automatically.
+Instead of setting your dotfiles to configure environment variables like your PATH and language settings, you can separate your settings into individual files.
 
-For example, I create ~/.poly/recipes/ioke.sh I can load Ioke by running
+Simply create a script in your .poly/recipes directory named <env>.sh.  For example, I create ~/.poly/recipes/ioke.sh I can load Ioke by running
 
 ```
 poly load ioke
@@ -47,6 +47,20 @@ Remember that ioke.sh will be 'dotted' into your environment so you shouldn't do
 
 ```
 exit 0
+```
+
+The github repo contains a [working example for default shell setup](https://github.com/mowat27/polyglot/blob/master/recipes/shell.sh).
+
+```shell
+alias ll='ls -ltr | tail'
+alias l='ls -1tr | tail'
+alias fndr='open /System/Library/CoreServices/Finder.app "$PWD"'
+
+alias sub='sublime'
+
+PS1='$ '
+CLICOLOR=1; export CLICOLOR
+LSCOLORS=GxFxCxDxBxegedabagaced; export LSCOLORS
 ```
 
 ### Command Prompt Setup
