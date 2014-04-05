@@ -1,6 +1,6 @@
-# Polygot
+# Polyglot
 
-Polygot is a simple framework for programmers who want to be able to switch between different langauages easily without having a really complicated .profile or .bashrc. It allows you to create simple little setup scripts for each lanaguage you use and then pull them into your current shell on-demand using a simple utility.
+Polyglot is a simple framework for programmers who want to be able to switch between different langauages easily without having a really complicated .profile or .bashrc. It allows you to create simple little setup scripts for each lanaguage you use and then pull them into your current shell on-demand using a simple utility.
 
 For example, I don't use clojurescript very often so I don't want it to be installed in my shell sessions by defualt.  However, I can load it up on demand using a single command.
 
@@ -13,13 +13,13 @@ poly load clojurescript
 clone this repo into ~/.poly
 
 ```
-git clone https://github.com/mowat27/polygot.git ~/.poly
+git clone https://github.com/mowat27/polyglot.git ~/.poly
 ```
 
 Add the following to .bashrc (or similar)
 
 ```
-alias poly="source $HOME/.poly/polygot.bash"
+alias poly="source $HOME/.poly/polyglot.bash"
 poly load shell git java ruby jruby rails mysql emacs
 ```
 
@@ -33,7 +33,7 @@ To get help, type
 poly help
 ```
 
-To create a new polygot environment, simply create a script in your .poly directory named <env>.sh and it should be picked up automatically.
+To create a new polyglot environment, simply create a script in your .poly directory named <env>.sh and it should be picked up automatically.
 
 For example, I create ~/.poly/ioke.sh I can load Ioke by running
 
