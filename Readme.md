@@ -33,9 +33,11 @@ To get help, type
 poly help
 ```
 
-To create a new polyglot environment, simply create a script in your .poly directory named <env>.sh and it should be picked up automatically.
+### Environment Setup
 
-For example, I create ~/.poly/ioke.sh I can load Ioke by running
+To create a new environment setup file, simply create a script in your .poly/recipes directory named <env>.sh and it should be picked up automatically.
+
+For example, I create ~/.poly/recipes/ioke.sh I can load Ioke by running
 
 ```
 poly load ioke
@@ -47,7 +49,26 @@ Remember that ioke.sh will be 'dotted' into your environment so you shouldn't do
 exit 0
 ```
 
-because that will kill your shell.
+### Command Prompt Setup
+
+You can control your command prompt (i.e. PS1 variable) using the prompt command to load one or more files from the prompts directory.
+
+For example, if I have 2 files in prompts.
+
+```shell
+$ cat prompts/pwd
+$(basename $PWD)
+$ cat prompts/dollar
+$
+```
+When I load them using the prompt command they are 'pushed' onto the PS1 in the order specified.
+
+```shell
+$ poly prompt pwd dollar
+.poly$ # This is my new prompt
+```
+
+### Per-project setup
 
 Sometimes, it's handy to have a per project setup.  You can do this by creating a file called Polyfile in any direrctory.  If you run poly with no arguments, it looks for the Polyfile and 'dots' it into your shell.
 
