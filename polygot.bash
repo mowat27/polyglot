@@ -1,4 +1,4 @@
-POLYGOT_HOME="${HOME}/.poly"
+POLYGOT_HOME="${HOME}/.poly/recipes"
 
 function usage {
   echo "Usage: polygot.bash command [args]" >&2
@@ -28,7 +28,7 @@ then
   if [[ -f ./Polyfile ]]
   then
     source ./Polyfile
-  else 
+  else
     echo "No Polyfile found" >&2
   fi
 else
