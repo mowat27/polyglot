@@ -1,5 +1,3 @@
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 function find_rb_files {
   if [[ -z "$1" ]]
   then
