@@ -1,1 +1,1 @@
-\[\033[34m\]$(basename $PWD)
+\[\033[34m\]$(basename $PWD)\[\033[00m\]
