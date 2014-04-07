@@ -20,10 +20,10 @@ Add the following to .bashrc (or similar)
 
 ```
 alias poly="source $HOME/.poly/polyglot.bash"
-poly load shell git java ruby jruby rails mysql emacs
+poly load example
 ```
 
-Obviously, you should load the packages relevant to your world not mine.
+This will load the provided example config at runtime.
 
 ## Usage
 
@@ -49,18 +49,11 @@ Remember that ioke.sh will be 'dotted' into your environment so you shouldn't do
 exit 0
 ```
 
-The github repo contains a [working example for default shell setup](https://github.com/mowat27/polyglot/blob/master/recipes/shell.sh).
+The github repo contains a [an example](https://github.com/mowat27/polyglot/blob/master/recipes/example.sh).
 
 ```shell
-alias ll='ls -ltr | tail'
-alias l='ls -1tr | tail'
-alias fndr='open /System/Library/CoreServices/Finder.app "$PWD"'
-
-alias sub='sublime'
-
-PS1='$ '
-CLICOLOR=1; export CLICOLOR
-LSCOLORS=GxFxCxDxBxegedabagaced; export LSCOLORS
+# Set language specific environment in a .sh file like this one
+export SOME_CONFIG_VAR="hello world"
 ```
 
 ### Command Prompt Setup
@@ -80,6 +73,18 @@ When I load them using the prompt command they are 'pushed' onto the PS1 in the 
 ```shell
 $ poly prompt pwd dollar
 .poly$ # This is my new prompt
+```
+
+### Storing your prompts in a different place
+
+I have found it easier to coordinate changes to my recipes and prompts between machines using Dropbox rather
+than via GitHub because I kept forgetting to push my changes.
+
+You can store recipes and/or prompts in a different location by exporting the following variables
+
+```shell
+export POLYGLOT_PROMPTS=$HOME/prompts
+export POLYGLOT_RECIPES=$HOME/recipes
 ```
 
 ### Per-project setup
@@ -106,6 +111,6 @@ You need to start a new session that doesn't include the language you don't want
 
 ### Do you want pull requests?
 
-No thanks.  Please fork the project and set things up as you like.
+Yes please - but please don't send me your own language configs
 
 
