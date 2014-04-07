@@ -1,5 +1,5 @@
-RECIPES="${HOME}/.poly/recipes"
-PROMPTS="${HOME}/.poly/prompts"
+: ${POLYGLOT_RECIPES:="${HOME}/.poly/recipes"}
+: ${POLYGLOT_PROMPTS:="${HOME}/.poly/prompts"}
 
 function usage {
   echo "Usage: polygot.bash command [args]" >&2
@@ -11,7 +11,7 @@ function usage {
 }
 
 function load {
-  CFG="${RECIPES}/${1}.sh"
+  CFG="${POLYGLOT_RECIPES}/${1}.sh"
   if [[ -f $CFG ]]
   then
     echo "poly : Loading $1"
@@ -22,18 +22,18 @@ function load {
 }
 
 function push_prompt {
-  CFG="${PROMPTS}/${1}"
+  CFG="${POLYGLOT_PROMPTS}/${1}"
   PS1="${PS1}$(cat $CFG)"
 }
 
 function list {
   echo "Recipes"
   echo "-------"
-  find $RECIPES -depth 1 -name '*.sh' -exec basename {} .sh \;
+  find $POLYGLOT_RECIPES -depth 1 -name '*.sh' -exec basename {} .sh \;
   echo ""
   echo "Prompts"
   echo "-------"
-  find $PROMPTS -depth 1 -type f -exec basename {} .sh \;
+  find $POLYGLOT_PROMPTS -depth 1 -type f -exec basename {} .sh \;
   echo ""
 }
 
