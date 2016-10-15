@@ -4,10 +4,12 @@ function find_rb_files {
     LOC='.'
   else
    LOC=$1
-  fi 
+  fi
 
   find "${LOC}" -name '*.rb'
 }
+
+source /usr/local/opt/chruby/share/chruby/chruby.sh
 
 alias rbs=find_rb_files
 alias be="bundle exec"
