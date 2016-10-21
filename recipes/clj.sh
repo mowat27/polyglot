@@ -1,1 +1,0 @@
-poly prompt pwd git -

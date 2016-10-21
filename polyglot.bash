@@ -1,8 +1,6 @@
 : ${POLYGLOT_RECIPES:="$(cd $(dirname $0); pwd)/recipes"}
 : ${POLYGLOT_PROMPTS:="$(cd $(dirname $0); pwd)/prompts"}
 
-echo Recipes: $POLYGLOT_RECIPES
-
 function usage {
   echo "Usage: polygot.bash command [args]" >&2
   echo "  commands:" >&2
