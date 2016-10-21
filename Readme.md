@@ -1,8 +1,8 @@
 # Polyglot
 
-Polyglot is a simple framework for programmers who want to be able to switch between different langauages easily without having a really complicated .profile or .bashrc. It allows you to create simple little setup scripts for each lanaguage you use and then pull them into your current shell on-demand using a simple utility.
+Polyglot is a simple framework for programmers who want to be able to switch between different langauages easily without having a really complicated .profile or .bashrc/.zshrc. It allows you to create simple little setup scripts for each language you use and then pull them into your current shell on-demand using a simple utility.
 
-For example, I don't use clojurescript very often so I don't want it to be installed in my shell sessions by defualt.  However, I can load it up on demand using a single command.
+For example, I don't use clojurescript very often so I don't want it to be installed in my shell sessions by default.  However, I can load it up on demand using a single command.
 
 ```
 poly load clojurescript
@@ -20,14 +20,14 @@ Add the following to .bashrc (or similar)
 
 ```
 alias poly="source $HOME/.poly/polyglot.bash"
-poly load shell git java ruby jruby rails mysql emacs
+poly load example
 ```
 
-Obviously, you should load the packages relevant to your world not mine.
+This will load the provided example config at runtime.
 
 ## Usage
 
-To get help, type 
+To get help, type
 
 ```
 poly help
@@ -43,24 +43,17 @@ Simply create a script in your .poly/recipes directory named <env>.sh.  For exam
 poly load ioke
 ```
 
-Remember that ioke.sh will be 'dotted' into your environment so you shouldn't do anything that will kill the whole session like 
+Remember that ioke.sh will be 'dotted' into your environment so you shouldn't do anything that will kill the whole session like
 
 ```
 exit 0
 ```
 
-The github repo contains a [working example for default shell setup](https://github.com/mowat27/polyglot/blob/master/recipes/shell.sh).
+The github repo contains a [an example](https://github.com/mowat27/polyglot/blob/master/recipes/example.sh).
 
 ```shell
-alias ll='ls -ltr | tail'
-alias l='ls -1tr | tail'
-alias fndr='open /System/Library/CoreServices/Finder.app "$PWD"'
-
-alias sub='sublime'
-
-PS1='$ '
-CLICOLOR=1; export CLICOLOR
-LSCOLORS=GxFxCxDxBxegedabagaced; export LSCOLORS
+# Set language specific environment in a .sh file like this one
+export SOME_CONFIG_VAR="hello world"
 ```
 
 ### Command Prompt Setup
@@ -82,6 +75,18 @@ $ poly prompt pwd dollar
 .poly$ # This is my new prompt
 ```
 
+### Storing your prompts in a different place
+
+I have found it easier to coordinate changes to my recipes and prompts between machines using Dropbox rather
+than via GitHub because I kept forgetting to push my changes.
+
+You can store recipes and/or prompts in a different location by exporting the following variables
+
+```shell
+export POLYGLOT_PROMPTS=$HOME/prompts
+export POLYGLOT_RECIPES=$HOME/recipes
+```
+
 ### Per-project setup
 
 Sometimes, it's handy to have a per project setup.  You can do this by creating a file called Polyfile in any direrctory.  If you run poly with no arguments, it looks for the Polyfile and 'dots' it into your shell.
@@ -100,12 +105,10 @@ poly : Loading hadoop
 
 ## FAQ
 
-### What if I want to uninstall a langauge from a session?
+### What if I want to uninstall a language from a session?
 
 You need to start a new session that doesn't include the language you don't want.
 
 ### Do you want pull requests?
 
-No thanks.  Please fork the project and set things up as you like.
-
-
+Yes please - but please don't send me your own language configs
